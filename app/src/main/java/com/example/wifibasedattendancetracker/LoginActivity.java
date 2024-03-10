@@ -32,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(username.getText().toString().equals("vedant") && password.getText().toString().equals("vedant")){
                     startActivity(home);
+                    finish();
                 }
                 else{
                     Toast.makeText(LoginActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
