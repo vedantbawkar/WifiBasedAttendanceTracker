@@ -30,7 +30,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        home = new Intent(LoginActivity.this, MainActivity.class);
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         login = findViewById(R.id.login_button);
@@ -48,8 +47,8 @@ public class LoginActivity extends AppCompatActivity {
 //                }
                 
 //                Uncomment an use for signing up/logging in a user...
-                signup();
-//                login();
+//                signup();
+                login();
 
             }
         });
@@ -68,10 +67,18 @@ public class LoginActivity extends AppCompatActivity {
                 if(snapshot.exists()){
                     username.setError(null);
                     String passwordDB = snapshot.child(user_name).child("password").getValue(String.class);
+                    String changePassword = snapshot.child(user_name).child("changePassword").getValue(String.class);
                     if(passwordDB.equals(pass_word)){
                         username.setError(null);
-                        home = new Intent(LoginActivity.this, MainActivity.class);
+                        if(changePassword.equals("1")){
+//                            Toast.makeText(LoginActivity.this, changePassword, Toast.LENGTH_SHORT).show();
+                            home = new Intent(LoginActivity.this, SetPasswordActivity.class);
+                            home.putExtra("user", user_name);
+                        }else {
+                            home = new Intent(LoginActivity.this, MainActivity.class);
+                        }
                         startActivity(home);
+                        finish();
                     }else {
                         username.setError("Invalid credentials");
                         username.requestFocus();
@@ -102,6 +109,7 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(LoginActivity.this, "Proceed to login...", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(LoginActivity.this, LoginActivity.class);
         startActivity(i);
+        finish();
     }
 
 }
