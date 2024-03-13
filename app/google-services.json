@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "632368807954",
+    "project_id": "wifi-based-attendance-tracker",
+    "storage_bucket": "wifi-based-attendance-tracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632368807954:android:0a8e4aacb592f1ec17d8cb",
+        "android_client_info": {
+          "package_name": "com.example.wifibasedattendancetracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn_rd4yE9n8HU4XRkWIIPWym3g1yAqPBo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
